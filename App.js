@@ -16,11 +16,10 @@ import List from './src/components/List';
 const App = () => {
   return (
     <ApolloProvider client={client}>
-      <View style={styles.container}>
+
         <StatusBar style="auto" />
-        <Text>Cats</Text>
         <List/>
-      </View>
+
     </ApolloProvider>
     
   );
