@@ -32,13 +32,7 @@ export default function List() {
                 paddingVertical: 30,
                 backgroundColor: '#faf5f0'
              }}
-            >
-                <Text style={{
-                    fontSize: 26, 
-                    fontWeight: '900',
-                    color: '#00000090'
-                }}>This are the News</Text>
-                {data.posts.map((post) => (<Card key={post.id} {...post}/>))}
+            >{data.posts.map((post) => (<Card key={post.id} {...post}/>))}
             </ScrollView>
         </SafeAreaView>
     )
