@@ -1,12 +1,28 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { ApolloClient,
+         InMemoryCache,
+         ApolloProvider,
+         gql,
+         useQuery} from '@apollo/client'
 
-export default function App() {
+const client = new ApolloClient({
+  uri: 'http://10.0.0.120:4000/',
+  cache: new InMemoryCache()
+})
+
+import List from './src/components/List';
+
+const App = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <ApolloProvider client={client}>
+      <View style={styles.container}>
+        <StatusBar style="auto" />
+        <Text>Cats</Text>
+        <List/>
+      </View>
+    </ApolloProvider>
+    
   );
 }
 
@@ -18,3 +34,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App
