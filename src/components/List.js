@@ -28,9 +28,8 @@ export default function List() {
         <SafeAreaView>
             <ScrollView
              contentContainerStyle={{
-                //alignItems: 'center',
                 paddingVertical: 30,
-                backgroundColor: '#faf5f0'
+                backgroundColor: '#faf5f0',
              }}
             >{data.posts.map((post) => (<Card key={post.id} {...post}/>))}
             </ScrollView>

@@ -25,7 +25,7 @@ const Routes = () => {
           name='Home' 
           component={Home}
           options={{
-            title: 'This are the News'
+            title: 'TáOn!'
           }}
         />
         <Screen name='Add' component={Add}/>

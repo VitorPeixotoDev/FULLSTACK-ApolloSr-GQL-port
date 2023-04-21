@@ -26,6 +26,7 @@ const Card = ({
     onCompleted: (data) => {console.log(data)}
   })
 
+  
   return (
     <View style={styles.container}>
       <View style={styles.cardContainer}>
@@ -33,19 +34,36 @@ const Card = ({
             style={styles.image}
             source={{ uri: image }}
         />
-        <Text style={styles.title}>{title}</Text>
-        <TouchableOpacity style={styles.button}>
-            <Text style={{color: 'white', fontWeight: 'bold'}}>likes {likes}</Text>
-        </TouchableOpacity>
-        <TouchableOpacity onPress={likePost} style={styles.button}>
-          <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>👍 </Text>
-        </TouchableOpacity>
+        <View style={{
+          flexDirection: 'row', 
+          justifyContent: 'space-between', 
+          alignItems: 'baseline',
+        }}>
+          <Text style={styles.title}>{title}</Text>
+          <Text style={{color: '#bbb'}}>{moment(createdAt).fromNow()}</Text>
+        </View>
+        <Text style={{fontWeight: '800'}}>{author}</Text>
+        <Text style={{fontSize: 17}}>{description}</Text>
+        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+          <View style={styles.button}>
+            <Text style={{color: 'white', fontWeight: 'bold'}}>{likes > 1 
+              ? `${likes} likes` 
+              : `${likes} like`}</Text>
+          </View>
+
+          <TouchableOpacity onPress={likePost} style={styles.button}>
+            <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 18 }}>👍 </Text>
+          </TouchableOpacity>
+        </View>
       </View>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
+  container: {
+ 
+  },
   cardContainer: {
     width: '90%',
     backgroundColor: '#fff',
@@ -58,7 +76,8 @@ const styles = StyleSheet.create({
     },
     shadowOpacity: 0.9,
     shadowRadius: 8,
-    marginVertical: 20
+    marginVertical: 20,
+    marginLeft: 16
   },
   title: {
     color: '#181818',

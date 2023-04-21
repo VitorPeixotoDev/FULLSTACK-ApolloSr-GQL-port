@@ -1,5 +1,5 @@
 import { useLayoutEffect } from 'react'
-import { View, Text, TouchableOpacity } from 'react-native'
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native'
 import List from '../components/List'
 import { Ionicons } from '@expo/vector-icons'
 import { useNavigation } from '@react-navigation/native'
@@ -26,5 +26,6 @@ const Home = () => {
     </View>
   )
 }
+
 
 export default Home
